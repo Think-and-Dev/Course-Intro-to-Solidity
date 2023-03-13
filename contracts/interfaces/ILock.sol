@@ -2,7 +2,7 @@
 pragma solidity ^0.8.17;
 
 interface ILock {
-    function withdraw() public;
+    function withdraw() external;
 
     event Withdrawal(uint amount, uint when);
 

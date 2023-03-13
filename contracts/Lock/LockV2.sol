@@ -10,25 +10,24 @@ contract LockV2 is ILock {
     constructor(uint _unlockTime) payable {
         require(block.timestamp < _unlockTime, "Unlock time should be in the future");
         /**
-         * It is equal to: 
-         * 
+         * It is equal to:
+         *
          * IF(block.timestamp < _unlockTime){
-         *      revert 
+         *      revert UnlockTimeNotFuture(_unlockTime);
          * }
-         * 
+         *
          */
-
 
         unlockTime = _unlockTime;
         owner = payable(msg.sender);
     }
 
     function withdraw() public {
-        if(){
-
+        if (block.timestamp < unlockTime) {
+            revert NotUnlockTime(block.timestamp);
         }
-        if(){
-
+        if (msg.sender != owner) {
+            revert NotOwner(msg.sender);
         }
 
         emit Withdrawal(address(this).balance, block.timestamp);
