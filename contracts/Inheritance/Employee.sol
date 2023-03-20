@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
-import "../../interfaces/IEmployee.sol";
+import "../interfaces/IEmployee.sol";
 import "./Person.sol";
 
 contract Employee is Person, IEmployee {
@@ -13,10 +13,13 @@ contract Employee is Person, IEmployee {
         _;
     }
 
-    constructor(address _owner, address _boss) Person(_owner) {}
+    constructor(address _owner, address _boss) Person(_owner) isValidAddress(_boss) {
+        boss = _boss;
+        emit EmployeeInitialized(_owner, _boss);
+    }
 
     function addContact(address _contact, bytes32 name) public override {
-        require(contacts[_contact] != bytes32(0), "Contact already set");
+        require(contacts[_contact] == bytes32(0), "Contact already set");
         super.addContact(_contact, name);
         colleaguesCounter++;
     }
@@ -25,5 +28,13 @@ contract Employee is Person, IEmployee {
         super.addContact(_contact, name);
         colleaguesCounter++;
         colleagues[_contact] = _position;
+        emit ColleagueAdded(_contact, name, _position);
+    }
+
+    function changeColleaguePosition(address _contact, bytes32 _position) external onlyOwner {
+        require(colleagues[_contact] != bytes32(0), "Colleague not set");
+        bytes32 oldPosition = colleagues[_contact];
+        colleagues[_contact] = _position;
+        emit ColleagueUpdated(_contact, oldPosition, _position);
     }
 }

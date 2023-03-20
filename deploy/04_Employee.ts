@@ -1,10 +1,9 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types'
 import {DeployFunction} from 'hardhat-deploy/types'
-import {ethers} from 'hardhat'
-import {getUnlockTime, printDeploySuccessful, printInfo} from '../utils/utils'
+import {printDeploySuccessful, printInfo} from '../utils/utils'
 
 const version = 'v1.0.0'
-const ContractName = 'LockV2'
+const ContractName = 'Employee'
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deployments, getNamedAccounts} = hre
@@ -13,20 +12,18 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deployer} = await getNamedAccounts()
 
   printInfo(`\n Deploying ${ContractName} contract...`)
-  const unlockTime = getUnlockTime()
 
-  const LockV2Result = await deploy(ContractName, {
-    args: [unlockTime],
+  const EmployeeResult = await deploy(ContractName, {
+    args: [deployer, deployer],
     contract: ContractName,
     from: deployer,
     skipIfAlreadyDeployed: false,
-    value: ethers.utils.parseEther('1'),
     autoMine: true
   })
 
-  const lockV2Address = LockV2Result.address
+  const employeeAddress = EmployeeResult.address
 
-  printDeploySuccessful(ContractName, lockV2Address)
+  printDeploySuccessful(ContractName, employeeAddress)
 
   return true
 }
