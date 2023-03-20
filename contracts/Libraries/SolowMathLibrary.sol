@@ -19,12 +19,12 @@ library SolowMathLibrary {
      *
      * (a,b) * (c,d) = (a+c),(b+d)
      */
-    function vectorialProduct(Point memory a, Point memory b) private pure returns (Point memory) {
+    function vectorialProduct(Point memory a, Point memory b) internal pure returns (Point memory) {
         Point memory result = Point({x: a.x + b.x, y: a.y + b.y});
         return result;
     }
 
-    function vectorialProductStorage(Point storage a, Point memory b) private returns (Point memory) {
+    function vectorialProductStorage(Point storage a, Point memory b) internal returns (Point memory) {
         a.x = a.x + b.x;
         a.y = a.y + b.y;
         return a;
@@ -35,7 +35,7 @@ library SolowMathLibrary {
      *
      * (a,b) * (c,d) = (a*c),(a*d),(b*c),(b*d)
      */
-    function cartesianProduct(Point memory a, Point memory b) private pure returns (Point[4] memory) {
+    function cartesianProduct(Point memory a, Point memory b) internal pure returns (Point[4] memory) {
         Point[4] memory result;
         result[0] = Point({x: a.x, y: b.x});
         result[1] = Point({x: a.x, y: b.y});
