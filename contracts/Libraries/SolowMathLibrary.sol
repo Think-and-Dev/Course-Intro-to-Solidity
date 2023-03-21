@@ -1,10 +1,3 @@
-/** 
-    Uso de la libería para tipo de dato uint
-    using SolowMathLibrary for uint;
-    Uso de la liberia para cualquier tipo de dato
-    using SolowMathLibrary for *;
-**/
-
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
@@ -33,7 +26,7 @@ library SolowMathLibrary {
     /***
      * Producto cartesiano
      *
-     * (a,b) * (c,d) = (a*c),(a*d),(b*c),(b*d)
+     * (a,b) * (c,d) = {(a*c),(a*d),(b*c),(b*d)}
      */
     function cartesianProduct(Point memory a, Point memory b) internal pure returns (Point[4] memory) {
         Point[4] memory result;
