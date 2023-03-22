@@ -14,3 +14,5 @@ artifacts
 .vscode
 
 .envrc
+
+tasks.md
