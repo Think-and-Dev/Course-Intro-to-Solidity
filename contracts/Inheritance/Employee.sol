@@ -3,6 +3,11 @@ pragma solidity ^0.8.17;
 import "../interfaces/IEmployee.sol";
 import "./Person.sol";
 
+/***
+ * El contrato Employee HEREDA del contrato Person
+ * El contrato Employee IMPLEMENTA la interfaz IEmployee
+ */
+
 contract Employee is Person, IEmployee {
     address public boss;
     uint256 colleaguesCounter;

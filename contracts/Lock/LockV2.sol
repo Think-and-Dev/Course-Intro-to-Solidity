@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.17;
 
 import "../interfaces/ILock.sol";
 
@@ -12,7 +12,7 @@ contract LockV2 is ILock {
         /**
          * It is equal to:
          *
-         * IF(block.timestamp < _unlockTime){
+         * if(block.timestamp > _unlockTime){
          *      revert UnlockTimeNotFuture(_unlockTime);
          * }
          *
