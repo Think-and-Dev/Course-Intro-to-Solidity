@@ -2,9 +2,9 @@
 pragma solidity ^0.8.17;
 
 interface IAnimal {
-    function callOwner() external returns (string memory);
-
     function changeOwner(address _newOwner) external;
+
+    function callOwner() external returns (string memory);
 
     event AnimalInitialized(address indexed owner, string name);
 
