@@ -9,3 +9,10 @@ typechain-types
 cache
 artifacts
 
+.DS_Store
+
+.vscode
+
+.envrc
+
+tasks.md
