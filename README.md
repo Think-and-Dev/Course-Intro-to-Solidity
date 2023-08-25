@@ -1,6 +1,4 @@
-# 2023 Solow Course Intro to Solidity
-
-- Clase Cinco: Solidity II
+# 2023 Course Intro to Solidity
 
 ### Temario
 
