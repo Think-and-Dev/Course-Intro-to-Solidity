@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "course-intro-to-solidity",
-=======
-  "name": "solow-course-intro-to-solidity",
->>>>>>> main
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Think-and-Dev/Solow-Course-Intro-to-Solidity.git",
@@ -11,14 +7,8 @@
   "license": "MIT",
   "scripts": {
     "compile": "npx hardhat compile",
-<<<<<<< HEAD
     "deploy": "npx hardhat deploy",
     "test": "npx hardhat test",
-=======
-    "test": "npx hardhat test",
-
-    "deploy": "npx hardhat deloy",
->>>>>>> main
     "deploy:network": "npx hardhat deploy --network"
   },
   "devDependencies": {
