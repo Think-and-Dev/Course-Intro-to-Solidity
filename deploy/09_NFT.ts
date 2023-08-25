@@ -3,7 +3,7 @@ import {DeployFunction} from 'hardhat-deploy/types'
 import {printDeploySuccessful, printInfo} from '../utils/utils'
 
 const version = 'v1.0.0'
-const ContractName = 'SolowNFT'
+const ContractName = 'NFT'
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deployments, getNamedAccounts} = hre
