@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
-import "./SolowMathLibrary.sol";
+import "./MathLibrary.sol";
 
 contract Student {
-    using SolowMathLibrary for SolowMathLibrary.Point;
+    using MathLibrary for MathLibrary.Point;
 
     address public owner;
     uint256 public numberOfExcercises;
@@ -19,10 +19,10 @@ contract Student {
     }
 
     function doHomework(
-        SolowMathLibrary.Point memory a,
-        SolowMathLibrary.Point memory b
-    ) external returns (SolowMathLibrary.Point memory) {
-        SolowMathLibrary.Point memory result = a.vectorialProduct(b);
+        MathLibrary.Point memory a,
+        MathLibrary.Point memory b
+    ) external returns (MathLibrary.Point memory) {
+        MathLibrary.Point memory result = a.vectorialProduct(b);
         numberOfExcercises++;
         emit HomeworkDone(block.timestamp);
         return result;

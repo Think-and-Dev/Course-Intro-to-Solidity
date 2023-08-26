@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
-library SolowMathLibrary {
+library MathLibrary {
     struct Point {
         uint256 x;
         uint256 y;
@@ -11,6 +11,7 @@ library SolowMathLibrary {
      * Producto vectorial
      *
      * (a,b) * (c,d) = (a+c),(b+d)
+     * (1,2) * (3,4) = (1+3,4+2) = (4,6)
      */
     function vectorialProduct(Point memory a, Point memory b) internal pure returns (Point memory) {
         Point memory result = Point({x: a.x + b.x, y: a.y + b.y});
